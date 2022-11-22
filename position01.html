@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position01 : absolute,fixed 실습</title>
+    <!-- style을 사용하는 3가지 방법
+            1. inline style : tag 안에 attribute style ="" 형식으로 쓰는 거, JS영역 css로는 거의 쓰지 않음.
+            2. internal style sheet : 스타일을 주는 것이 국소적일 때 ..... 거의 사용하지 않음.
+            3. external style sheet : 스타일시트를 외부에 분리해서 impor해서 쓰는 방법 : 주로 사용 하는 방법.
+    -->
+    <!-- 지금 쓰는 것은 internal style sheet -->
+    <style>
+        /* 실습할려고 쓴 body */
+        body {
+            background: #ff0;
+            height: 200vh;
+        }
+
+        .position {
+            /* position: relative; 좌표를 가진다 */
+            /* top: 300px;
+            left: 300px; */
+            /* position: relative; */
+            /* height: 300px; */
+            background: tomato;
+            margin: 500px 0;
+            /* overflow: hidden; */
+        }
+
+        /* (((position: absolute, fixed의 특징)))
+        1. 떠오른다.
+        2. 쪼그라든다. (width: auto)
+        3. 기준점을 상실한다. (기준점은 parents 영역의 position을 기준으로 한다. 기준점이 없을 시: body)
+        4. parents 영역의 height를 없앤다. */
+
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .box01 {
+            top: 30px;
+            left: 30px;
+            z-index: 999;
+
+        }
+
+        /* (((position: fixed의 특징)))
+        1. absolute의 성질을 가지고 있다.
+        2. 기준점을 만들어 줄 수가 없다. (기준점은 항상 화면(viewport))
+        3. body를 벗어나도 스크롤바를 만들지 않는다. (!!!아주 중요!!!)*/
+        .fixed {
+            position: fixed;
+            top: 0;
+            right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- tag 자동완성 기능 : emmet : section. position (tab) -->
+    <section class="position">
+        <!-- .box.box0${box0$} 안돼면 >쓰고 tab-->
+        <div class="box box01">box01</div>
+        <div class="box box02">box02</div>
+        <div class="box box03">box03</div>
+        <div class="box box04">box04</div>
+        <div class="box box05">box05</div>
+    </section>
+
+    <div class="fixed">
+        나는 고정
+    </div>
+</body>
+
+</html>

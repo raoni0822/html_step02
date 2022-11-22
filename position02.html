@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position02</title>
+    <style>
+        body {
+            height: 200vh;
+        }
+
+        .btn {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            background: #ddd;
+            border: 1px solid #333;
+            /* 둥글게 만들 때 */
+            border-radius: 5px;
+        }
+
+        .btn span {
+            /* 기준이 되어 준다 */
+            position: absolute;
+            /* top: 5px; */
+            left: 3px;
+            right: 3px;
+            background: #333;
+            /* btn에 상속 받은 값 100% */
+            /* width: calc(100%-6px); */
+            height: 2px;
+            transition: 0.5s;
+        }
+
+        .btn span:nth-child(1) {
+            top: 7px;
+        }
+
+        .btn span:nth-child(2) {
+            /* top: calc(50%-1px); */
+            top: 50%;
+            /* transform: translate(0, -50%); */
+        }
+
+        .btn span:nth-child(3) {
+            /* top: calc(50%-1px); */
+            top: 50%;
+            /* transform: translate(0, -50%); */
+        }
+
+        .btn span:nth-child(4) {
+            bottom: 5px;
+        }
+
+        .btn:hover span:nth-child(1) {
+            display: none;
+        }
+
+        .btn:hover span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .btn:hover span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .btn:hover span:nth-child(4) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+</html>
